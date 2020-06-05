@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+             <title>文章管理系统</title>
+</head>
+<body>
+<div >
+    <h2>我是detail</h2>
+    <a href="/home/index/index">返回主页</a>
+    <ul >
+
+        <li >{$detail.title}</li>
+        <li>{$detail.content}</li>
+        <li>{$detail.addate}</li>
+        <li>{$detail.username}</li>
+
+    </ul>
+    <span>评论:</span>
+    {foreach $com as $c}
+    <p>{$c.comment}</p>
+    {/foreach}
+
+<a href="/home/article/addcomment/?id={$detail.id}">评论</a>
+
+</div>
+</body>
+</html>

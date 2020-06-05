@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+</head>
+<body>
+<h1 align="center">
+yoyo我是博客的首页
+</h1>
+<p >
+
+{$Request.session.username}欢迎您
+
+</p>
+
+
+
+<a href="/home/login/login">登录</a>
+<a href="/home/login/logout">退出登录</a>
+<p>
+<a href="/home/article/index">文章管理(章录了才能访问,session判断)</a>
+</p>
+
+
+
+</body>
+</html>

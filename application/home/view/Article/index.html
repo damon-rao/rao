@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+             <title>文章管理系统</title>
+             <style type="text/css">
+             a{text-decoration:none;}
+             ul{display:block;}
+            </style>
+</head>
+<body>
+<div >
+<div>
+<h2>我是后台</h2>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="/home/index/index">返回主页</a>
+&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="/home/article/add">添加文章</a>
+</div>
+
+<p>根据作者国籍显示文章</p>
+                  <select name="category_id">
+                    <option value="1">japan</option>
+                    <option value="2"  >china</option>
+                    <option value="3">america</option>
+                    <option value="4">england</option>
+                  </select>
+
+
+
+{foreach $article as $art}
+    <ul >
+
+        <li ><a href="/home/article/detail/?id={$art.id}">{$art.title}</a></li>
+            <a href="/home/article/del/?id={$art.id}">删除</a>
+            <a href="/home/article/update/?id={$art.id}">修改</a>
+
+    </ul>
+{/foreach}
+
+    <div>{$article|raw}</div>
+</div>
+</body>
+</html>
