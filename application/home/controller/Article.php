@@ -124,18 +124,20 @@ class Article extends Controller
 
     public function detail(Request $request,$id)
     {
+//        echo $id;
         $detail=Db::table('article')
-            ->field('content,title,username,addate,a.id,comment')
+            ->field('content,title,username,addate,a.id')
             ->alias('a')
             ->where('a.id',$id)
-            ->join('user u','u.id=article.user_id')
-            ->join('comments c','c.article_id=a.comment_id')
+            ->join('user u','u.id=a.user_id')
+//            ->join('comments c','c.article_id=a.comment_id')
            ->find();
             ;
             $com=Db::table('comments')
                 ->where('article_id',$id)
                 ->select();
 //        dump($com);exit;
+//        dump($detail);exit;
 //array(1) { [1111]=> array(5) { ["content"]=> string(4) "1111" ["title"]=> string(5) "11111"
 // ["username"]=> string(5) "damon" ["addate"]=> string(19) "2020-06-05 12:47:30" ["id"]=> int(43) } }
             return view('detail',['detail'=>$detail,'com'=>$com]);
